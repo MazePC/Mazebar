@@ -1,3 +1,5 @@
+![Waybar Screenshot](./mazebar.png)
+
 This is my personal take on d00m1k's SimpleBlueColorWaybar, adapted for the Dracula color scheme and optimized for Hyprland.
 
 I've made several changes to the module selection and layout. Notably:
