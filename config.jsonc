@@ -11,18 +11,15 @@
         "hyprland/workspaces"
     ],
     "modules-center": [
-        "hyprland/window"
+        "wlr/taskbar","custom/launcher"
     ],
     "modules-right": [
         "idle_inhibitor",
-        "pulseaudio",
         "network",
         "cpu",
         "memory",
-        "temperature",
-        "hyprland/language",
-        "battery",
-        "battery#bat2",
+        "pulseaudio#output",
+        "pulseaudio#input",
         "clock"
     ],
     //Modules configuration
