@@ -43,7 +43,17 @@ window#waybar {
 #custom-media,
 #tray,
 #mode,
-#idle_inhibitor,
+
+#idle_inhibitor {
+padding-left: 10px;
+padding-right: 10px;
+color: #f8f8f2;
+}
+
+#idle_inhibitor.activated {
+color: #50fa7b;
+}
+
 #scratchpad,
 #power-profiles-daemon,
 #language,
@@ -104,4 +114,16 @@ window#waybar {
 }
 #custom-arch:hover {
     color: #1793d1;
+}
+#custom-launcher {
+font-family: "SpaceMono Nerd Font", "Fira Sans Semibold", FontAwesome, sans-serif;
+font-size: 24px;
+padding-left: 6px;
+padding-right: 12px;
+}
+#pulseaudio.input.source-muted {
+color: #ff5555;
+}
+#pulseaudio.output.muted {
+color: #ff5555;
 }
