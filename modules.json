@@ -2,7 +2,8 @@
     "custom/arch": {
         "format": "󰣇",
         "tooltip": true,
-        "tooltip-format": "btw"
+        "tooltip-format": "Power Menu",
+        "on-click": "wlogout"
     },
 
 
@@ -24,23 +25,29 @@
             "deactivated": ""
         }
     },
-    "pulseaudio": {
-        "format": "{icon}  {volume}%",
-        "format-bluetooth": "{icon} {volume}%  {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": " {volume}%",
-        "format-source-muted": "",
+    "pulseaudio#input": {
+      "format-source": " {volume}%",
+      "format-source-muted": "  {volume}%",
+      "format": "{format_source}",
+      "scroll-step": 1,
+      "smooth-scrolling-threshold": 1,
+      "max-volume": 100,
+      "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+      "on-click-middle": "pavucontrol",
+      "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +1%",
+      "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -1%",
+    },
+    "pulseaudio#output": {
+        "format": "{icon}   {volume}%",
+        "format-muted": "  {volume}%",
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
             "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
+    },
+    "max-volume": 100,
+    "scroll-step": 2,
+    "smooth-scrolling-threshold": 1,
+    "on-click": "pavucontrol",
+    "on-click-middle": "pavucontrol",
     },
     "network": {
         "format-wifi": "   {essid} ({signalStrength}%)",
@@ -48,8 +55,6 @@
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
-	"on-click": "sh ~/scripts/rofi-wifi-menu/rofi-wifi-menu.sh"
-	 
     },
     "cpu": {
         "format": "  {usage}%",
@@ -59,35 +64,37 @@
         "format": "  {}%",
 	"tooltip": true
     },
-    "temperature": {
-        "interval": 10,
-        "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input",
-        "critical-threshold": 100,
-        "format-critical": " {temperatureC}",
-        "format": " {temperatureC}°C"
-    },
     "hyprland/language": {
        "format": "  {}",
        "format-en": "EN",
        "format-ru": "RU"
     },
-    "battery": {
-        "states": {
-            "warning": 30,
-            "critical": 15
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 20,
+        "icon-theme": "Numix-Circle",
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "ignore-list": [
+           "Alacritty"
+        ],
+        "app_ids-mapping": {
+          "firefoxdeveloperedition": "firefox-developer-edition"
         },
-        "format": "{icon}  {capacity}%",
-        "format-full": "{icon}  {capacity}%",
-        "format-charging": "  {capacity}%",
-        "format-plugged": "  {capacity}%",
-        "format-alt": "{time}  {icon}",
-        "format-icons": ["", "", "", "", ""]
+        "rewrite": {
+            "Firefox Web Browser": "Firefox",
+            "Foot Server": "Terminal"
+        }
     },
-    "battery#bat2": {
-        "bat": "BAT2"
+    "custom/launcher": {
+      "format": "󰀻",
+      "tooltip": true,
+      "tooltip-format": "Open Application Launcher",
+      "on-click": "wofi --show drun"
     },
     "clock": {
-        "format": "{:%H:%M | %e %B} ",
+        "format": "{:%I:%M %p | %e %B}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
     }
